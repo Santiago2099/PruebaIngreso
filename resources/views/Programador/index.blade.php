@@ -3,7 +3,7 @@
     <head>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Programador</a>
+            <a class="navbar-brand" href="/programadores/index">Programador</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -27,6 +27,11 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
     <br>
+    @php if($success == 1):@endphp
+    <div class="alert alert-success" role="alert">
+        Se ha guardado con exito el programador, actualmente ahi un total de @php echo count($programador) @endphp programadores
+      </div>
+    @php endif @endphp
     <div class="container-fluid">
         <table class="table table-dark table-striped">
             <thead>
@@ -39,13 +44,16 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                </tr>
+                @php foreach ($programador as $key): @endphp
+                    <tr>
+                            <th>{{$key->nombre}}</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            <td>@mdo</td>
+
+                    </tr>
+                @php endforeach @endphp
             </tbody>
         </table>
     </div>

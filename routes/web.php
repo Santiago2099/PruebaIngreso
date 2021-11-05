@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProgramadorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [ProgramadorController::class,'index']);
+// Controlador ProgramadorController
+Route::get('/programadores/create', [ProgramadorController::class,'view'] );
+Route::post('/programadores/store', [ProgramadorController::class,'store'] );
+
